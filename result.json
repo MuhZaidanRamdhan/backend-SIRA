@@ -1,0 +1,48 @@
+{
+    "success": true,
+    "query": "Saya tertarik pada keamanan data",
+    "total_recommendation": 5,
+    "recommendations": 
+    [
+        {
+            "nama_mk": "Struktur Data dan Algoritma",
+            "kode_mk": "KBTI120001",
+            "peminatan": "dasar",
+            "sks": 2,
+            "semester": 2,
+            "alasan": "Mata kuliah ini membahas struktur data dan algoritma yang digunakan untuk menganalisis dan menyelesaikan masalah"
+        },
+        {
+            "nama_mk": "Basis Data",
+            "kode_mk": "KMIE12002TI",
+            "peminatan": "dasar",
+            "sks": 3,
+            "semester": 2,
+            "alasan": "Mata kuliah ini membahas basis data sebagai dasar untuk pengembangan sistem informasi"
+        },
+        {
+            "nama_mk": "Exploratory Data Analysis",
+            "kode_mk": "KMTI21133",
+            "peminatan": "AI",
+            "sks": 3,
+            "semester": 3,
+            "alasan": "Mata kuliah ini membahas exploratory data analysis untuk menganalisis dan menemukan pola dalam data"
+        },
+        {
+            "nama_mk": "Natural Language Processing",
+            "kode_mk": "KMTI30106",
+            "peminatan": "AI",
+            "sks": 3,
+            "semester": 4,
+            "alasan": "Mata kuliah ini membahas natural language processing untuk ekstraksi informasi, pemodelan bahasa, serta penerapan teknologi bahasa alami"
+        },
+        {
+            "nama_mk": "Kriptografi",
+            "kode_mk": "KMTI22141",
+            "peminatan": "Cyber ",
+            "sks": 3,
+            "semester": 4,
+            "alasan": "Mata kuliah ini membahas kriptografi untuk kunci dan penerapan kriptografi untuk menjamin keamanan data dan komunikasi"
+        }
+    ]
+}
