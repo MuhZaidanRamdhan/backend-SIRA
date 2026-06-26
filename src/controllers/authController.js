@@ -89,7 +89,11 @@ exports.login = async (req, res) => {
       });
     }
 
+    console.log(req.body);
+
     const user = await authService.findUserByEmailOrUsername(login);
+
+    console.log(user);
 
     if (!user) {
       return res.status(404).json({

@@ -1,7 +1,7 @@
 const db = require("../config/db");
 
 exports.clearMataKuliah = async () => {
-  await db.execute("TRUNCATE TABLE mata_kuliah");
+  await db.execute("TRUNCATE TABLE courses");
 };
 
 exports.saveMataKuliah = async (
@@ -13,7 +13,7 @@ exports.saveMataKuliah = async (
   deskripsi,
 ) => {
   await db.execute(
-    `INSERT INTO mata_kuliah 
+    `INSERT INTO courses 
     (kode_mk, nama_mk, peminatan, sks, semester, deskripsi)
     VALUES (?, ?, ?, ?, ?, ?)`,
     [kode_mk, nama_mk, peminatan, sks, semester, deskripsi],
@@ -21,7 +21,7 @@ exports.saveMataKuliah = async (
 };
 
 exports.getAllMataKuliah = async () => {
-  const [rows] = await db.execute("SELECT * FROM mata_kuliah");
+  const [rows] = await db.execute("SELECT * FROM courses");
 
   return rows;
 };

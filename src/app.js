@@ -28,7 +28,7 @@ app.use("/api", embeddingRoutes);
 
 app.use("/api/auth", authRoutes);
 
-app.use("/api/mata-kuliah", mataKuliahRoutes);
+app.use("/api/courses", mataKuliahRoutes);
 
 app.use("/api", logRoutes);
 

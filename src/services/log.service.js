@@ -11,9 +11,13 @@ exports.saveLog = async (user_id, query, result) => {
   }
 };
 
-exports.getLogs = async (user) => {
+exports.getLogs = async (user, page = 1, limit = 10) => {
+  const offset = (page - 1) * limit;
+
   let query = "";
+  let countQuery = "";
   let values = [];
+  let countValues = [];
 
   if (user.role === "admin") {
     query = `
@@ -31,7 +35,18 @@ exports.getLogs = async (user) => {
       ON users.id = recommendation_logs.user_id
       WHERE users.role = 'mahasiswa'
       ORDER BY recommendation_logs.created_at DESC
+      LIMIT ? OFFSET ?
     `;
+
+    countQuery = `
+      SELECT COUNT(*) as total
+      FROM recommendation_logs
+      JOIN users
+      ON users.id = recommendation_logs.user_id
+      WHERE users.role = 'mahasiswa'
+    `;
+
+    values = [limit, offset];
   } else {
     query = `
       SELECT
@@ -48,12 +63,24 @@ exports.getLogs = async (user) => {
       ON users.id = recommendation_logs.user_id
       WHERE recommendation_logs.user_id = ?
       ORDER BY recommendation_logs.created_at DESC
+      LIMIT ? OFFSET ?
     `;
 
-    values = [user.id];
+    countQuery = `
+      SELECT COUNT(*) as total
+      FROM recommendation_logs
+      WHERE user_id = ?
+    `;
+
+    values = [user.id, limit, offset];
+    countValues = [user.id];
   }
 
   const [rows] = await db.execute(query, values);
+  const [count] = await db.execute(countQuery, countValues);
 
-  return rows;
+  return {
+    logs: rows,
+    total: count[0].total,
+  };
 };

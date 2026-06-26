@@ -9,4 +9,5 @@ const { isAdmin } = require("../middlewares/roleMiddleware");
 
 router.get("/users", authenticateToken, isAdmin, userController.getAllUsers);
 
+router.get("/users-management", authenticateToken, isAdmin, userController.getAllUsersWithPagination);
 module.exports = router;

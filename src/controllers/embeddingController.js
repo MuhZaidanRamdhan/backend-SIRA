@@ -21,8 +21,7 @@ exports.syncEmbedding = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Sinkronisasi embedding berhasil",
-      data: response.data,
+      message: "Sinkronisasi embedding berhasil"
     });
   } catch (error) {
     console.error(error.message);
